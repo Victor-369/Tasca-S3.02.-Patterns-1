@@ -15,14 +15,14 @@ public class USAAddress implements Address {
     }
 
     private String checkText(String text, String attribute) {
-        if (text == null || text.isEmpty()) throw new IllegalArgumentException(attribute + " must be filled");
+        if (text == null || text.isBlank()) throw new IllegalArgumentException(attribute + " must be filled");
 
         return text;
     }
 
     private String checkPostalCode(String postalCode) {
         if (postalCode == null ||
-                !postalCode.matches(ZIP_REGEX_US)) throw new IllegalArgumentException("must be a 2-letter state code followed by a 5-digit ZIP");
+                !postalCode.matches(ZIP_REGEX_US)) throw new IllegalArgumentException("Must be a 2-letter state code followed by a 5-digit ZIP");
 
         return postalCode;
     }

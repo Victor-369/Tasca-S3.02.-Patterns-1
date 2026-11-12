@@ -15,7 +15,7 @@ public class SpainAddress implements Address {
     }
 
     private String checkText(String text, String attribute) {
-        if (text == null || text.isEmpty()) throw new IllegalArgumentException(attribute + " must be filled");
+        if (text == null || text.isBlank()) throw new IllegalArgumentException(attribute + " must be filled");
 
         return text;
     }
