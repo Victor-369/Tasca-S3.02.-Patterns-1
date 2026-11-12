@@ -2,16 +2,25 @@ package com.nivell2.abstractfactory.products;
 
 import com.nivell2.abstractfactory.interfaces.Phone;
 
-public class UsaPhone implements Phone {
+public class USAPhone implements Phone {
     private final String phoneNumber;
-    private static final String PHONE_REGEX_US = "^\\+1\\s\\(\\d{3}\\)\\s\\d{3}-\\d{4}$";
+    private static final String PHONE_REGEX_US = "^\\d{9}$";
+    private static final String PREFIX = "+1";
 
-    protected UsaPhone(String phoneNumber) {
+    public USAPhone(String phoneNumber) {
         this.phoneNumber = checkPhoneNumber(phoneNumber);
     }
 
+    @Override
     public String getPhoneNumber() {
-        return phoneNumber;
+        String formattedPhoneNumber = phoneNumber.replaceFirst(
+                "(\\d{2})(\\d{3})(\\d{4})",
+                "($1) $2-$3"
+        );
+
+        formattedPhoneNumber = formattedPhoneNumber.replace("(", "(0");
+
+        return PREFIX + " " + formattedPhoneNumber;
     }
 
     private String checkPhoneNumber(String phoneNumber) {

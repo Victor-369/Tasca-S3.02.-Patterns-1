@@ -2,12 +2,12 @@ package com.nivell2.abstractfactory.products;
 
 import com.nivell2.abstractfactory.interfaces.Phone;
 
-public class SpanishPhone implements Phone {
+public class SpainPhone implements Phone {
     private final String phoneNumber;
     private static final String PHONE_REGEX_ES = "^\\d{9}$";
     private static final String PREFIX = "+34";
 
-    public SpanishPhone(String phoneNumber) {
+    public SpainPhone(String phoneNumber) {
         this.phoneNumber = checkPhoneNumber(phoneNumber);
     }
 

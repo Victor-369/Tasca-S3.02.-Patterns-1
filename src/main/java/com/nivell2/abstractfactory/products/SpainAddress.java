@@ -2,12 +2,13 @@ package com.nivell2.abstractfactory.products;
 
 import com.nivell2.abstractfactory.interfaces.Address;
 
-public class SpanishAddress implements Address {
+public class SpainAddress implements Address {
     private final String street;
     private final String city;
     private final String postalCode;
+    private static final String ZIP_REGEX_ES = "^\\d{5}$";
 
-    public SpanishAddress(String street, String city, String postalCode) {
+    public SpainAddress(String street, String city, String postalCode) {
         this.street = checkText(street, "Street");
         this.city = checkText(city, "City");
         this.postalCode = checkPostalCode(postalCode);
@@ -21,7 +22,7 @@ public class SpanishAddress implements Address {
 
     private String checkPostalCode(String postalCode) {
         if (postalCode == null ||
-                !postalCode.matches("\\d{5}")) throw new IllegalArgumentException("Postal code must be a valid number");
+                !postalCode.matches(ZIP_REGEX_ES)) throw new IllegalArgumentException("Postal code must be a valid number");
 
         return postalCode;
     }
