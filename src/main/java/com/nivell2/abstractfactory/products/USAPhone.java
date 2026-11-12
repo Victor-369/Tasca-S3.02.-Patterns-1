@@ -1,8 +1,8 @@
-package com.nivell2.abstractfactory.models;
+package com.nivell2.abstractfactory.products;
 
 import com.nivell2.abstractfactory.interfaces.Phone;
 
-public abstract class UsaPhone implements Phone {
+public class UsaPhone implements Phone {
     private final String phoneNumber;
     private static final String PHONE_REGEX_US = "^\\+1\\s\\(\\d{3}\\)\\s\\d{3}-\\d{4}$";
 

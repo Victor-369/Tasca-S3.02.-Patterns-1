@@ -1,16 +1,14 @@
-package com.nivell2.abstractfactory.models;
+package com.nivell2.abstractfactory.products;
 
 import com.nivell2.abstractfactory.interfaces.Address;
 
 public class SpanishAddress implements Address {
     private final String street;
-    private final int streetNumber;
     private final String city;
     private final String postalCode;
 
-    public SpanishAddress(String street, int streetNumber, String city, String postalCode) {
+    public SpanishAddress(String street, String city, String postalCode) {
         this.street = checkText(street, "Street");
-        this.streetNumber = checkStreetNumber(streetNumber);
         this.city = checkText(city, "City");
         this.postalCode = checkPostalCode(postalCode);
     }
@@ -21,15 +19,8 @@ public class SpanishAddress implements Address {
         return text;
     }
 
-    private int checkStreetNumber(int streetNumber) {
-        if (streetNumber < 1) throw new IllegalArgumentException("Street number must be positive");
-
-        return streetNumber;
-    }
-
     private String checkPostalCode(String postalCode) {
         if (postalCode == null ||
-                postalCode.isEmpty() ||
                 !postalCode.matches("\\d{5}")) throw new IllegalArgumentException("Postal code must be a valid number");
 
         return postalCode;
@@ -37,6 +28,6 @@ public class SpanishAddress implements Address {
 
     @Override
     public String getAddress() {
-        return street + " " + streetNumber + ", " + postalCode + " " + city;
+        return street + ", " + postalCode + " " + city;
     }
 }
