@@ -7,16 +7,28 @@ Exercises about software design patterns, implemented in Java. Each level focuse
 | Level | Pattern | Description | Details |
 |---|---|---|---|
 | 1 | Singleton | `Undo` class that keeps a single, shared command history. | [README](src/main/java/com/nivell1/singleton/README.md) |
+| 2 | Abstract Factory | Contact manager that formats addresses and phone numbers for Spain and the USA. | [README](src/main/java/com/nivell2/abstractfactory/README.md) |
 
 ## Project structure
 
 ```
 src
-├── main/java/com/nivell1/singleton
-│   ├── README.md
-│   └── Undo.java
-└── test/java/com/nivell1/singleton
-    └── UndoTest.java
+├── main/java/com/
+│   ├── nivell1/singleton
+│   │   ├── README.md
+│   │   └── Undo.java
+│   └── nivell2/abstractfactory
+│       ├── README.md
+│       ├── clients/      Contact
+│       ├── factories/    SpainContactFactory, USAContactFactory
+│       ├── interfaces/   Address, Phone, ContactFactory
+│       └── products/     SpainAddress, SpainPhone, USAAddress, USAPhone
+└── test/java/com/
+    ├── nivell1/singleton
+    │   └── UndoTest.java
+    └── nivell2/abstractfactory
+        ├── clients/      ContactTest
+        └── products/     SpainAddressTest, SpainPhoneTest, USAAddressTest, USAPhoneTest
 ```
 
 ## Technologies
