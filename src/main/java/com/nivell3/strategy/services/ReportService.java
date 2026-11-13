@@ -9,12 +9,18 @@ public class ReportService {
         this.reportStrategy = checkReportStrategy(reportStrategy);
     }
 
-    public String getReport(String data) {
+    public String generateReport(String data) {
+        checkData(data);
+
         return this.reportStrategy.generateReport(data);
     }
 
     public void setReportStrategy(ReportStrategy newReportStrategy) {
         this.reportStrategy = checkReportStrategy(newReportStrategy);
+    }
+
+    private void checkData(String data) {
+        if (data == null || data.isBlank()) throw new IllegalArgumentException("Data must be filled");
     }
 
     private ReportStrategy checkReportStrategy(ReportStrategy reportStrategy) {
