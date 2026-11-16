@@ -8,6 +8,7 @@ Exercises about software design patterns, implemented in Java. Each level focuse
 |---|---|---|---|
 | 1 | Singleton | `Undo` class that keeps a single, shared command history. | [README](src/main/java/com/nivell1/singleton/README.md) |
 | 2 | Abstract Factory | Contact manager that formats addresses and phone numbers for Spain and the USA. | [README](src/main/java/com/nivell2/abstractfactory/README.md) |
+| 3 | Strategy | Report service that generates reports in CSV, Excel, HTML, JSON, PDF, Word and XML formats. | [README](src/main/java/com/nivell3/strategy/README.md) |
 
 ## Project structure
 
@@ -17,18 +18,26 @@ src
 │   ├── nivell1/singleton
 │   │   ├── README.md
 │   │   └── Undo.java
-│   └── nivell2/abstractfactory
+│   ├── nivell2/abstractfactory
+│   │   ├── README.md
+│   │   ├── clients/      Contact
+│   │   ├── factories/    SpainContactFactory, USAContactFactory
+│   │   ├── interfaces/   Address, Phone, ContactFactory
+│   │   └── products/     SpainAddress, SpainPhone, USAAddress, USAPhone
+│   └── nivell3/strategy
 │       ├── README.md
-│       ├── clients/      Contact
-│       ├── factories/    SpainContactFactory, USAContactFactory
-│       ├── interfaces/   Address, Phone, ContactFactory
-│       └── products/     SpainAddress, SpainPhone, USAAddress, USAPhone
+│       ├── interfaces/   ReportStrategy
+│       ├── services/     ReportService
+│       └── strategies/   CsvStrategy, ExcelStrategy, HtmlStrategy, JsonStrategy, PdfStrategy, WordStrategy, XmlStrategy
 └── test/java/com/
     ├── nivell1/singleton
     │   └── UndoTest.java
-    └── nivell2/abstractfactory
-        ├── clients/      ContactTest
-        └── products/     SpainAddressTest, SpainPhoneTest, USAAddressTest, USAPhoneTest
+    ├── nivell2/abstractfactory
+    │   ├── clients/      ContactTest
+    │   └── products/     SpainAddressTest, SpainPhoneTest, USAAddressTest, USAPhoneTest
+    └── nivell3/strategy
+        ├── services/     ReportServiceTest
+        └── strategies/   CsvStrategyTest, ExcelStrategyTest, HtmlStrategyTest, JsonStrategyTest, PdfStrategyTest, WordStrategyTest, XmlStrategyTest
 ```
 
 ## Technologies
@@ -37,6 +46,7 @@ src
 - Maven
 - JUnit Jupiter
 - AssertJ
+- Mockito
 
 ## How to run the tests
 
